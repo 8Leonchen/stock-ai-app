@@ -33,8 +33,8 @@ if st.button("开始点评"):
             请点评：{user_input}。
             要求：100字以内，包含一个具体的比喻。
             """
-            
-            response = model.generate_content(prompt)
+            my_config = genai.types.GenerationConfig(temperature = 2.0)
+            response = model.generate_content(prompt,generation_config = my_config)
             
             st.success("点评完成：")
             st.markdown(f"### {response.text}")
