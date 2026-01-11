@@ -6,7 +6,11 @@ st.title("📈 巴菲特毒舌股票点评器")
 st.write("输入股票代码，看看股神怎么吐槽。")
 
 
-api_key = st.sidebar.text_input("请输入 Google API Key", type="password")
+if "GOOGLE_API_KEY" in st.secrets:
+    api_key = st.secrets["GOOGLE_API_KEY"]
+else:
+    api_key = st.sidebar.text_input("请输入 Google API Key", type="password")
+
 
 
 user_input = st.text_input("想查哪只股票？(例如: TSLA, 茅台)")
